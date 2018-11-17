@@ -5,11 +5,8 @@ Variables    ../../../Conf/Objects/Mahara/Page_Objects.py
 
 *** Keywords ***
 Open Testing Browser     
-    Log  %{PATH} 
-    Append To Environment Variable    PATH    /Users/luis.rozo/Downloads
-    Log  %{PATH}   
-    Open Browser To Mahara    https://demo.mahara.org/    chrome        
-    #Maximize Browser Window
+    Open Browser To Mahara    https://demo.mahara.org/    chrome    
+#    Maximize Browser Window
       
 Open Browser To Mahara
     [Arguments]    ${url}    ${BrowserName}
@@ -32,3 +29,5 @@ Test All Users Login
     Wait Until Page Contains Element    id=sb-profile
     Page Should Contain Element    xpath=//a[@class="user-icon"]
     Capture Screenshot And Close Browser
+
+
