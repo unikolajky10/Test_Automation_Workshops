@@ -24,9 +24,11 @@ Login To Mahara
 Capture Screenshot And Close Browser
     Capture Page Screenshot    
     Close Browser
-    
-Verify User Logged In
-    [Arguments]    ${name}
-    Wait Until Page Contains Element    ${frame_profile}
-    Page Should Contain Element   ${profile_block} 
-    Page Should Contain    ${name}
+
+Test All Users Login
+    [Arguments]    ${uname}    ${pwd}	
+    Open Testing Browser  
+	Login To Mahara    ${uname}    ${pwd}    
+    Wait Until Page Contains Element    id=sb-profile
+    Page Should Contain Element    xpath=//a[@class="user-icon"]
+    Capture Screenshot And Close Browser
